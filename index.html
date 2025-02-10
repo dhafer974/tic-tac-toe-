@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rania Bch Taars B Amin</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #ff0000, #ff7300, #ffeb00, #00ff00, #00ffff, #0000ff, #8000ff);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 15px white;
+        }
+        .popup img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Rania Kalba</h1>
+        <div class="player-inputs">
+            <input type="text" id="player1" placeholder="Enter Player 1 Name">
+            <input type="text" id="player2" placeholder="Enter Player 2 Name">
+            <button onclick="startGame()">Start Game</button>
+        </div>
+        <div class="game" id="game" style="display: none;">
+            <div class="board" id="board"></div>
+            <p class="status" id="status"></p>
+            <button onclick="resetGame()">Reset Game</button>
+        </div>
+        <div class="popup" id="popup">
+            <img src="R.png" alt="Great">
+            <p>GREAT</p>
+        </div>
+    </div>
+    <script>
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('popup').style.display = 'none';
+            }, 2000);
+        }
+        function resetGame() {
+            document.getElementById('board').innerHTML = "";
+            document.getElementById('status').textContent = "";
+            document.getElementById('game').style.display = "none";
+            document.querySelector(".player-inputs").style.display = "block";
+        }
+    </script>
+    <script src="game.js"></script>
+</body>
+</html>
